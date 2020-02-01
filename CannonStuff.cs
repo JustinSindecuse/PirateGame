@@ -21,7 +21,7 @@ public class CannonStuff : MonoBehaviour
             objName = name;
             opCannon = true;
         }
-        
+
     }
 
     void Update()
@@ -31,8 +31,20 @@ public class CannonStuff : MonoBehaviour
             //Rotating and firing cannon
             if (Input.GetKey("a"))
             {
-                Vector3 temp = new Vector3(0, 0, 3);
+                Vector3 temp = new Vector3(0, 0, 1);
+                float rot = gameObject.transform.localRotation.z;
+                if(objName == "Cannon1") {
+                  if(rot > 359) temp = new Vector3(0, 0, 0);
+                }
                 gameObject.transform.Rotate(temp, Space.Self);
+            }
+            else if(Input.GetKey("d")) {
+              Vector3 temp = new Vector3(0, 0, -1);
+              float rot = gameObject.transform.localRotation.z;
+              if(objName == "Cannon1") {
+                if(rot < 275) temp = new Vector3(0, 0, 0);
+              }
+              gameObject.transform.Rotate(temp, Space.Self);
             }
         }
     }
