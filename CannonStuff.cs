@@ -33,7 +33,7 @@ public class CannonStuff : MonoBehaviour
     {
     if (opCannon == true)
     {
-        if (hit = true)
+        if (hit == true)
         {
             //increase time global variable
             time += Time.deltaTime;
