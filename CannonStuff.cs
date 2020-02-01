@@ -5,7 +5,6 @@ using UnityEngine;
 public class CannonStuff : MonoBehaviour
 {
     bool opCannon;
-    string objName;
     bool hit;
 
     void Start()
@@ -20,7 +19,6 @@ public class CannonStuff : MonoBehaviour
         string name = dataFromCollision.gameObject.name;
         if(name == "Pirate")
         {
-            objName = name;
             opCannon = true;
         }
         if(name == "cannonBall")
@@ -33,13 +31,22 @@ public class CannonStuff : MonoBehaviour
     {
         if (opCannon == true)
         {
-            if (!hit)
+            if (Input.GetKey("a"))
             {
-                //Rotating and firing cannon
-                if (Input.GetKey("a"))
+                Vector3 temp = new Vector3(0, 0, 1);
+                gameObject.transform.Rotate(temp, Space.Self);
+            }
+            else if(Input.GetKey("d")) {
+              Vector3 temp = new Vector3(0, 0, -1);
+              gameObject.transform.Rotate(temp, Space.Self);
+            }
+            float rotation = gameObject.transform.localRotation.z * Mathf.Rad2Deg;
+            if(this.name == "Cannon5")
+            {
+                Debug.Log("cannon 5");
+                if(rotation < 30)
                 {
-                    Vector3 temp = new Vector3(0, 0, 1);
-                    gameObject.transform.Rotate(temp, Space.Self);
+                    gameObject.transform.Rotate(new Vector3(0, 0, 30 - rotation));
                 }
             }
         }
