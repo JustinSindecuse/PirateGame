@@ -29,7 +29,7 @@ public class CannonStuff : MonoBehaviour
 
     void Update()
     {
-        if (opCannon == true)
+        if (opCannon)
         {
             if (Input.GetKey("a"))
             {
@@ -41,14 +41,30 @@ public class CannonStuff : MonoBehaviour
               gameObject.transform.Rotate(temp, Space.Self);
             }
             float rotation = gameObject.transform.localRotation.z * Mathf.Rad2Deg;
-            if(this.name == "Cannon5")
-            {
-                Debug.Log("cannon 5");
-                if(rotation < 30)
-                {
-                    gameObject.transform.Rotate(new Vector3(0, 0, 30 - rotation));
-                }
+            int lowerBound = 0;
+            int upperBound = 0;
+            if(this.name == "Cannon1") {
+              lowerBound = 275;
+              upperBound = 355;
             }
+            else if(this.name == "Cannon2") {
+              lowerBound = 185;
+              upperBound = 275;
+            }
+            else if(this.name == "Cannon3") {
+              lowerBound = -45;
+              upperBound = 45;
+            }
+            else if(this.name == "Cannon4") {
+              lowerBound = 135;
+              upperBound = 225;
+            }
+            else if(this.name == "Cannon5") {
+              lowerBound = 0;
+              upperBound = 180;
+            }
+            if(rotation < lowerBound)) gameObject.transform.Rotate(new Vector3(0, 0, lowerBound - rotation));
+            if(rotation > upperBound) gameObject.transform.Rotate(new Vector3(0, 0, rotation - upperBound));
         }
     }
 }

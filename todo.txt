@@ -1,0 +1,11 @@
+TODO
+
+Currently
+-rotating all cannons
+
+Later
+-if operating cannon and cannon is hit/damaged, repair the cannon
+-tally delta time using global variable, once it reaches 1, player can exit
+
+Questions
+-
