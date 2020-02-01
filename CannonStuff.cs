@@ -6,10 +6,12 @@ public class CannonStuff : MonoBehaviour
 {
     bool opCannon;
     string objName;
+    bool hit;
 
     void Start()
     {
         opCannon = false;
+        hit = false;
     }
 
     void OnCollisionEnter2D(Collision2D dataFromCollision)
@@ -28,8 +30,7 @@ public class CannonStuff : MonoBehaviour
     {
         if (opCannon == true)
         {
-            //Rotating and firing cannon
-            if (Input.GetKey("a"))
+            if (!hit)
             {
                 Vector3 temp = new Vector3(0, 0, 1);
                 float rot = gameObject.transform.localRotation.z;
