@@ -6,11 +6,13 @@ public class CannonStuff : MonoBehaviour
 {
     bool opCannon;
     bool hit;
+    int time;
 
     void Start()
     {
         opCannon = false;
         hit = false;
+        time = 0;
     }
 
     void OnCollisionEnter2D(Collision2D dataFromCollision)
@@ -29,7 +31,20 @@ public class CannonStuff : MonoBehaviour
 
     void Update()
     {
-        if (opCannon)
+    if (opCannon == true)
+    {
+        if (hit == true)
+        {
+            //increase time global variable
+            time += Time.deltaTime;
+            if (time > 4000)
+            {
+                hit = false;
+                time = 0;
+            }
+
+        }
+        else
         {
             if (Input.GetKey("a"))
             {
@@ -37,8 +52,8 @@ public class CannonStuff : MonoBehaviour
                 gameObject.transform.Rotate(temp, Space.Self);
             }
             else if(Input.GetKey("d")) {
-              Vector3 temp = new Vector3(0, 0, -1);
-              gameObject.transform.Rotate(temp, Space.Self);
+            Vector3 temp = new Vector3(0, 0, -1);
+            gameObject.transform.Rotate(temp, Space.Self);
             }
             float rotation = gameObject.transform.localRotation.z * Mathf.Rad2Deg;
             int lowerBound = 0;
@@ -66,5 +81,6 @@ public class CannonStuff : MonoBehaviour
             if(rotation < lowerBound)) gameObject.transform.Rotate(new Vector3(0, 0, lowerBound - rotation));
             if(rotation > upperBound) gameObject.transform.Rotate(new Vector3(0, 0, rotation - upperBound));
         }
+    }
     }
 }
