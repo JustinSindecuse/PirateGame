@@ -19,11 +19,11 @@ public class CannonStuff : MonoBehaviour
     {
         Debug.Log("OnCollisionEnter2D");
         string name = dataFromCollision.gameObject.name;
-        if(name == "Pirate")
+        if (name == "Pirate")
         {
             opCannon = true;
         }
-        if(name == "cannonBall")
+        if (name == "cannonBall")
         {
             hit = true;
         }
@@ -31,45 +31,66 @@ public class CannonStuff : MonoBehaviour
 
     void Update()
     {
-    if (opCannon == true)
-    {
-        Debug.Log(hit);
-        if (hit == true)
+        if (opCannon == true)
         {
-            //increase time global variable
-            time += Time.deltaTime;
-            if (time > 4000)
+            if (hit == true)
             {
-                hit = false;
-                time = 0;
-            }
-
-        }
-        else
-        {
-            if (Input.GetKey("a"))
-            {
-                Vector3 temp = new Vector3(0, 0, 1);
-                gameObject.transform.Rotate(temp, Space.Self);
-            }
-            else if(Input.GetKey("d")) {
-            Vector3 temp = new Vector3(0, 0, -1);
-            gameObject.transform.Rotate(temp, Space.Self);
-            }
-            float rotation = gameObject.transform.localRotation.z * Mathf.Rad2Deg;
-            if(this.name == "Cannon5")
-            {
-                Debug.Log("cannon 5");
-                if(rotation < 30)
+                //increase time global variable
+                time += Time.deltaTime;
+                if (time > 4000)
                 {
-                    gameObject.transform.Rotate(new Vector3(0, 0, 30 - rotation));
+                    hit = false;
+                    time = 0;
                 }
+
+            }
+            else
+            {
+                if (Input.GetKey("a"))
+                {
+                    Vector3 temp = new Vector3(0, 0, 1);
+                    gameObject.transform.Rotate(temp, Space.Self);
+                }
+                else if (Input.GetKey("d"))
+                {
+                    Vector3 temp = new Vector3(0, 0, -1);
+                    gameObject.transform.Rotate(temp, Space.Self);
+                }
+                float rotation = gameObject.transform.localRotation.z * Mathf.Rad2Deg;
+                int lowerBound = 0;
+                int upperBound = 0;
+                if (this.name == "Cannon1")
+                {
+                    lowerBound = 275;
+                    upperBound = 355;
+                }
+                else if (this.name == "Cannon2")
+                {
+                    lowerBound = 185;
+                    upperBound = 275;
+                }
+                else if (this.name == "Cannon3")
+                {
+                    lowerBound = -45;
+                    upperBound = 45;
+                }
+                else if (this.name == "Cannon4")
+                {
+                    lowerBound = 135;
+                    upperBound = 225;
+                }
+                else if (this.name == "Cannon5")
+                {
+                    lowerBound = 0;
+                    upperBound = 180;
+                }
+                if (rotation < lowerBound) gameObject.transform.Rotate(new Vector3(0, 0, lowerBound - rotation));
+                if (rotation > upperBound) gameObject.transform.Rotate(new Vector3(0, 0, rotation - upperBound));
+            }
+            if (Input.GetKey("c"))
+            {
+                opCannon = false;
             }
         }
-        if (Input.GetKey("c"))
-        {
-             opCannon = false;
-        }
-    }  
     }
 }
