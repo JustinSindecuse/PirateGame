@@ -23,7 +23,10 @@ public class CannonStuff : MonoBehaviour
             objName = name;
             opCannon = true;
         }
-        
+        if(name == "cannonBall")
+        {
+            hit = true;
+        }
     }
 
     void Update()
