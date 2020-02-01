@@ -6,7 +6,7 @@ public class CannonStuff : MonoBehaviour
 {
     bool opCannon;
     bool hit;
-    int time;
+    float time;
 
     void Start()
     {
@@ -33,7 +33,8 @@ public class CannonStuff : MonoBehaviour
     {
     if (opCannon == true)
     {
-        if (hit = true)
+        Debug.Log(hit);
+        if (hit == true)
         {
             //increase time global variable
             time += Time.deltaTime;
@@ -64,6 +65,10 @@ public class CannonStuff : MonoBehaviour
                     gameObject.transform.Rotate(new Vector3(0, 0, 30 - rotation));
                 }
             }
+        }
+        if (Input.GetKey("c"))
+        {
+             opCannon = false;
         }
     }  
     }
