@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CannonStuff : MonoBehaviour
 {
+    public Transform firePoint;
+    public GameObject cannonBallPrefab;
+    
     bool opCannon;
     bool hit;
     float time;
@@ -29,6 +32,7 @@ public class CannonStuff : MonoBehaviour
         }
     }
 
+    //Add "if (input.getbuttondown"fire") shoot();
     void Update()
     {
         if (opCannon == true)
@@ -46,7 +50,12 @@ public class CannonStuff : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey("a"))
+                //Add "if (input.getbuttondown"fire") shoot()
+                if (Input.GetKey("w"))
+                {
+                    Shoot();
+                }
+                else if (Input.GetKey("a"))
                 {
                     Vector3 temp = new Vector3(0, 0, 1);
                     gameObject.transform.Rotate(temp, Space.Self);
@@ -92,5 +101,11 @@ public class CannonStuff : MonoBehaviour
                 opCannon = false;
             }
         }
+    }
+
+    void Shoot()
+    {
+        //shooting logic
+        Instantiate(cannonBallPrefab, firePoint.position, firePoint.rotation);
     }
 }
