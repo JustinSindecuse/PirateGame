@@ -1,0 +1,37 @@
+[33mcommit f7128a020eb8ecece9be5deafda49fb4c764a536[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 8e4de2a 800a30a
+Author: Justin Sindecuse-Hayden <sindecus@usc.edu>
+Date:   Sat Feb 1 15:20:15 2020 -0800
+
+    Finished merging and fixed rotation of Cannon 5
+
+[33mcommit 8e4de2ae20550c0034d9987ce77627b4532e0401[m
+Author: Justin Sindecuse-Hayden <sindecus@usc.edu>
+Date:   Sat Feb 1 13:59:49 2020 -0800
+
+    quick update
+
+[33mcommit 800a30a7ab47c2065dd98843ca8fafd04fc3f575[m
+Merge: b838ee6 017083f
+Author: Colin Spiridonov <colinspiri@gmail.com>
+Date:   Sat Feb 1 13:53:29 2020 -0800
+
+    Merge branch 'master' of https://github.com/JustinSindecuse/PirateGame
+
+[33mcommit b838ee63b0a2cf20bd59c9b9eabea5b32f62df13[m
+Author: Colin Spiridonov <colinspiri@gmail.com>
+Date:   Sat Feb 1 13:52:44 2020 -0800
+
+    Added limits on rotating Cannon1
+
+[33mcommit 017083f9c13b1ee284af595a3d77dc7cc3c0db9a[m
+Author: Justin Sindecuse-Hayden <sindecus@usc.edu>
+Date:   Sat Feb 1 13:01:40 2020 -0800
+
+    Added hp
+
+[33mcommit a172d782c9eae1db72cc26724137f672c56bbc83[m
+Author: Justin Sindecuse-Hayden <sindecus@usc.edu>
+Date:   Sat Feb 1 12:53:33 2020 -0800
+
+    Initial commit with CannonStuff and PlayerController

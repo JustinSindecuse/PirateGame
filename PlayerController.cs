@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             //Lock player position to cannon
             if (cannonName == "Cannon4")
             {
-                Vector3 newPos = new Vector3(.31f, -.76f, 0);
+                Vector3 newPos = new Vector3(-.94f, -0.75f, 0);
                 transform.position = newPos;
             }
             else if (cannonName == "Cannon5")
@@ -55,19 +55,19 @@ public class PlayerController : MonoBehaviour
                 Vector3 newPos = new Vector3(-4.41f, .39f, 0);
                 transform.position = newPos;
             }
-            else if(cannonName == "Canon3")
+            else if(cannonName == "Cannon3")
             {
-                Vector3 newPos = new Vector3(.31f, 1.09f, 0);
+                Vector3 newPos = new Vector3(-.9f, 1.1f, 0);
                 transform.position = newPos;
             }
             else if(cannonName == "Cannon2")
             {
-                Vector3 newPos = new Vector3(1.77f, 1.22f, 0);
+                Vector3 newPos = new Vector3(1.51f, -0.48f, 0);
                 transform.position = newPos;
             }
             else if(cannonName == "Cannon1")
             {
-                Vector3 newPos = new Vector3(1.71f, -.42f, 0);
+                Vector3 newPos = new Vector3(1.7f, 1.17f, 0);
                 transform.position = newPos;
             }
             
