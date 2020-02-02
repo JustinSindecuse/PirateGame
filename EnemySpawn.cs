@@ -23,10 +23,8 @@ public class EnemySpawnerScript : MonoBehaviour
         {
             nextSpawn = Time.time + spawnRate;
             randX = Random.Range (-7.5f,7.5f);
-            whereToSpawn1 = new Vector2(randX, 4.5);
-            whereToSpawn2 = new Vector2(randX, -4.5);
+            Vector2 whereToSpawn1 = new Vector2(randX, 4.5f);
             Instantiate (enemy, whereToSpawn1, Quaternion.identity);
-            Instantiate (enemy, whereToSpawn2, Quaternion.identity);
         }
 
     }

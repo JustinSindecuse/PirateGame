@@ -7,6 +7,8 @@ public class CannonStuff : MonoBehaviour
     public Transform firePoint;
     public GameObject cannonBallPrefab;
     public Animator animator;
+    public Sprite DamagedCannon;
+    public Sprite Cannon;
     public float speed;
 
     bool opCannon;
@@ -16,6 +18,7 @@ public class CannonStuff : MonoBehaviour
     bool allowFire;
     float fireSpeed = 2;
     float waitTilNextFire;
+   
 
     void Start()
     {
@@ -42,11 +45,18 @@ public class CannonStuff : MonoBehaviour
             animator.SetBool("Destroyed", true);
         }
     }
-
+    
     //Add "if (input.getbuttondown"fire") shoot();
     void Update()
     {
-        
+        if (hit == true)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = DamagedCannon;
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Cannon;
+        }
         if (opCannon == true)
         {
             //Debug.Log("operating cannon " + this.name);
@@ -60,7 +70,6 @@ public class CannonStuff : MonoBehaviour
                     time = 0;
                     animator.SetBool("Destroyed", false);
                 }
-
             }
             else
             {
